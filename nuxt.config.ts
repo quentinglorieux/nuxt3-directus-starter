@@ -1,8 +1,17 @@
-// import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  css: ['~~/assets/css/tailwind.css'],
+  // https://v3.nuxtjs.org/guide/directory-structure/nuxt.config/
+
+  // As of RC12 Nuxt 3 supports Hybrid rendering mode
+  // https://v3.nuxtjs.org/guide/concepts/rendering#route-rules
+  //   routeRules: {
+  //     '/pages/**': { swr: true },
+  //     '/posts/**': { static: true },
+  //   },
+
+  css: [],
 
   buildModules: [
     // https://pinia.esm.dev
@@ -11,23 +20,24 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
   ],
 
+  modules: ['@nuxtjs/tailwindcss'],
+
   runtimeConfig: {
     public: {
       directusUrl: process.env.DIRECTUS_URL,
     },
   },
 
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          'postcss-import': {},
-          'tailwindcss/nesting': {},
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
+  postcss: {
+    plugins: {
+      'postcss-import': {},
+      'tailwindcss/nesting': {},
+      tailwindcss: {},
+      autoprefixer: {},
     },
+  },
+
+  build: {
     transpile: ['@heroicons/vue', '@headlessui/vue'],
   },
 

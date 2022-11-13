@@ -52,8 +52,19 @@ async function sayHello() {
        name: name.value,
       //name: 'quentin', this works but name.value doesnt ?
     },
+    // The useFetch composable caches the response, you can disable that by passing initalCache: false as an option. Make sure you check out all the documentation for it.
+    initialCache: false,
+    // Or if you want to use the cache, you can pass in a key to useFetch
+    // key: name.value,
   })
- 
+
+  // As an alternative, you could also use the $fetch helper instead of the useFetch composable. The response is not cached.
+  //   const { data } = await $fetch('/api/hello', {
+  //     params: {
+  //       name: name.value,
+  //     },
+  //   })
+
   response.value = data.value
   loading.value = false
 }
