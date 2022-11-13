@@ -37,10 +37,9 @@
     </header>
 
     <div>
-      <VAlert type="warning">
-        <strong>Warning:</strong>
-        Nuxt 3 is currently still in Release Candiate so I wouldn't recommend it
-        for production use because of possible breaking changes.
+      <VAlert type="academic">
+        <strong>Academia:</strong>
+        Quentin is overtaking 
       </VAlert>
       <ExamplesLogos />
     </div>
@@ -56,7 +55,7 @@
       </h2>
       <ExamplesContent id="content" class="py-12" />
       <ExamplesAuth id="authentication" class="py-12" />
-      <ExamplesApiRoutes id="api" class="py-12" />
+      <ExamplesApiRoutes id="api" class="py-12" />        <!-- to be verified with dynamic  - question on GitHub-->
     </div>
     <div
       id="components"

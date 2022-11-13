@@ -9,8 +9,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
     if (process.client) {
       window.alert(msg)
     }
-    console.log(msg)
-
     return navigateTo('/')
   }
 })

@@ -5,6 +5,7 @@
         This example shows how to fetch content from the Directus API and render
         that using dynamic routes in Nuxt.
       </p>
+      <p> {{ hello.message }}  </p>
       <p>
         Look for the
         <code>[slug].vue</code> component within the
@@ -13,7 +14,7 @@
     </template>
     <template #default>
       <div v-if="loading" class="flex items-center justify-center flex-1">
-        <VLoading class="w-24 h-24 text-primary-600" />
+        <VLoading class="w-10 h-10 text-primary-600" />
       </div>
       <div
         v-else-if="pages.length === 0"
@@ -23,7 +24,7 @@
           No pages loaded. <br />What are you waiting for?
         </p>
         <VButton class="mt-2" @click="fetchPages()" variant="primary">
-          Fetch Pages</VButton
+          Fetch Pages Now</VButton
         >
       </div>
       <ul class="space-y-6" v-else-if="pages.length > 0">
@@ -33,7 +34,15 @@
             :image="fileUrl(page.image)"
             :title="page.title"
             :description="`/${page.slug}`"
+            :status= 1
           />
+         
+          {{page.pages_translations}}
+          <div v-for="lang in page.pages_translations"> 
+            <div v-if="lang.languages_code === 'fr-FR' "> Titre: {{lang.title }}  </div>
+            <div v-if="lang.languages_code === 'en-US' "> Title: {{lang.title }}  </div>
+          </div>
+
         </li>
       </ul>
       <VButton
@@ -42,8 +51,7 @@
         @click="pages = []"
         variant="default"
       >
-        Clear Pages</VButton
-      >
+        Clear Pages  </VButton>
     </template>
   </ExamplesTwoCols>
 </template>
@@ -55,14 +63,23 @@ const { fileUrl } = useFiles()
 const pages = ref([])
 const loading = ref(false)
 
+ const { data : hello } = await useFetch('/api/hello')
+
+// function useLang(array,language) {
+//   return array.indexOf(language);
+// }
+
 async function fetchPages() {
   loading.value = true
   try {
-    const { data } = await $directus.items('pages').readByQuery({
+    const { data } = await $directus.items('Pages').readByQuery({
+      //search: 'en-US',
+      sort: ["-title"],
+      fields: ['*.title','*.languages_code'],
       filter: {
-        status: { _eq: 'published' },
+     //   status: { _eq: 'published' },
       },
-      limit: 5,
+      limit: 3,
     })
     pages.value = data
   } catch (e) {

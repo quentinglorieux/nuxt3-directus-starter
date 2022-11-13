@@ -8,7 +8,9 @@
       Back to Home Page
     </NuxtLink>
 
+
     <div class="relative pt-48 pb-10 overflow-hidden shadow-xl rounded-2xl">
+     
       <img
         class="absolute inset-0 object-cover w-full h-full"
         :src="fileUrl(page.image)"
@@ -20,6 +22,7 @@
       <div class="relative px-8">
         <div class="relative text-lg font-medium text-white md:flex-grow">
           <h1 class="text-6xl font-bold drop-shadow-sm">{{ page.title }}</h1>
+          {{ pages_translations }}
         </div>
       </div>
     </div>
@@ -45,12 +48,12 @@ const {
   path,
   () => {
     return $directus
-      .items('pages')
+      .items('Pages')
       .readByQuery({ filter: { slug: { _eq: params.slug } }, limit: 1 })
   },
   {
     transform: (data) => data.data[0],
-    pick: ['title', 'content', 'image'],
+    pick: ['title', 'content', 'image', 'pages_translations'],
   }
 )
 

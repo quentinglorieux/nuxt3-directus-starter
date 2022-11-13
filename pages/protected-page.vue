@@ -34,11 +34,11 @@ const auth = useAuth()
 
 // Set middleware
 definePageMeta({
-  middleware: 'auth',
+  middleware: 'auth', 
 })
 
 // Define the page title
-useMeta({
-  title: 'Protected Content',
-})
+ useMeta({
+  title: 'Q-Protected Content',
+ })
 </script>

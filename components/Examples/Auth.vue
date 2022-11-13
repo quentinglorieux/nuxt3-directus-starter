@@ -30,7 +30,7 @@
                 <p class="text-2xl font-bold dark:text-white">
                   Welcome {{ user.first_name }}!
                 </p>
-                <p class="text-sm font-medium text-gray-500">
+                <p class="text-sm font-small text-gray-500">
                   {{ user.email }}
                 </p>
               </div>
@@ -52,7 +52,7 @@
           </p>
           <pre
             class="h-full p-4 mt-4 overflow-x-auto text-sm text-gray-100 whitespace-pre bg-gray-800 border-2 rounded-lg border-primary-800"
-            >{{ user }}</pre
+            >id: {{ user.id }}</pre
           >
         </div>
       </div>

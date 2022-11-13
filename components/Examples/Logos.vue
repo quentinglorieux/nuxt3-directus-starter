@@ -2,7 +2,7 @@
   <div class="grid max-w-4xl grid-cols-1 gap-8 py-12 mx-auto md:grid-cols-2">
     <div>
       <h2
-        class="text-3xl font-extrabold text-transparent text-gray-900 sm:text-4xl bg-clip-text bg-gradient-to-r from-primary-600 to-pink-600"
+        class="text-3xl font-extrabold text-transparent text-gray-900 sm:text-4xl bg-clip-text bg-gradient-to-r from-primary-600 to-red-600"
       >
         Develop internal or client applications faster
       </h2>
@@ -28,7 +28,7 @@
         v-for="logo in logos"
         :key="logo.name"
         :to="logo.link"
-        class="relative flex items-center justify-center col-span-1 p-8 overflow-hidden rounded-lg group md:col-span-2 lg:col-span-1 bg-gray-50 dark:brightness-90"
+        class="relative flex items-center justify-center col-span-1  overflow-hidden  group md:col-span-2 lg:col-span-1 bg-gray-50 dark:brightness-90"
         target="_blank"
       >
         <div
@@ -36,7 +36,7 @@
         >
           <span
             class="px-4 py-2 text-3xl font-bold text-transparent transition duration-300 rounded-tr-lg rounded-bl-lg group-hover:bg-primary-100 group-hover:text-primary-700 dark:group-hover:bg-primary-800 dark:group-hover:text-primary-200"
-            >Visit →</span
+            >Visit → 📨</span
           >
         </div>
         <img

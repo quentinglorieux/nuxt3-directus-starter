@@ -10,7 +10,7 @@
         name="email"
         type="email"
         label="Email address"
-        placeholder="john@example.com"
+        placeholder="quentin@rubidiumweb.eu"
         required
       />
       <VInput
@@ -47,8 +47,8 @@ const error = ref(null)
 const loading = ref(false)
 
 function loadDemoUser() {
-  email.value = 'user@example.com'
-  password.value = 'password'
+  email.value = 'quentin.glorieux@gmail.com'
+  password.value = 'courlisDRCTS1208'
 }
 
 async function login() {

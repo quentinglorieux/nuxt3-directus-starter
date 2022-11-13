@@ -54,10 +54,11 @@
         <div class="mt-4">
           <VLabel label="Alert Type" />
           <div class="space-x-2">
-            <VButton
+            <VButton variant="outline"
               v-for="type in alertTypes"
               :key="type.type"
               @click="alertType = type.type"
+              
             >
               <component class="w-5 h-5" :is="type.icon" />
             </VButton>
@@ -66,7 +67,9 @@
         <VAlert class="mt-4" :type="alertType">{{ alertContent }}</VAlert>
       </template>
     </ExamplesTwoCols>
-    <ExamplesTwoCols class="py-12" label="Buttons">
+
+
+    <ExamplesTwoCols class="py-12" label="Buttonsz">
       <template #content>
         <p>The button component description.</p>
         <VLabel label="Example Usage" />
@@ -76,7 +79,7 @@
         <VLabel label="Button Variants" />
         <div class="flex flex-wrap">
           <div
-            v-for="button in ['primary', 'default', 'outline', 'danger']"
+            v-for="button in ['primary',  'outline', 'danger','default']"
             :key="button"
             class="p-2"
           >
@@ -121,6 +124,7 @@ import {
   InformationCircleIcon,
   XCircleIcon,
   CheckCircleIcon,
+  AcademicCapIcon,
 } from '@heroicons/vue/24/solid'
 
 import {
@@ -157,6 +161,7 @@ const alertTypes = [
   { icon: ExclamationTriangleIcon, type: 'warning' },
   { icon: XCircleIcon, type: 'error' },
   { icon: CheckCircleIcon, type: 'success' },
+  { icon: AcademicCapIcon, type: 'academic'},
 ]
 const alertType = ref('warning')
 const alertContent = ref('Here is some alert content.')

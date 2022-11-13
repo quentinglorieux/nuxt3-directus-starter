@@ -3,16 +3,19 @@
     class="flex items-center justify-between overflow-hidden transition duration-150 bg-white rounded-lg shadow-lg dark:bg-gray-800 group hover:scale-105"
     :to="path"
   >
-    <div class="flex h-24">
-      <img class="object-cover w-24 h-full dark:brightness-90" :src="image" />
+    <div class="flex h-32">
+      <img class="object-cover w-32 h-full dark:brightness-90" :src="image" />
       <div class="p-4">
         <p
-          class="text-2xl font-bold transition duration-150 group-hover:text-primary-600 dark:text-white"
+          class="text-ml font-bold transition duration-150 group-hover:text-primary-600 dark:text-white"
         >
-          {{ title }}
+          {{ title }} 
         </p>
         <p class="mt-2 text-sm font-medium text-gray-500">
-          {{ description }}
+          status: {{ status }}
+        </p>
+        <p class="mt-2 text-sm font-medium text-gray-500">
+          translations : {{ pages_translations }}
         </p>
       </div>
     </div>
@@ -37,9 +40,18 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  status: {
+    type: String,
+    default: '',
+  },
   description: {
     type: String,
     default: '',
   },
+  translations: {
+    type: Array,
+    default: '',
+  },
+
 })
 </script>

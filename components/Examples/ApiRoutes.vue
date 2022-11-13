@@ -22,7 +22,7 @@
             <p v-if="loading">
               <VLoading class="w-6 h-6" />
             </p>
-            <p v-else>Say Hello</p>
+            <p v-else>Say Hello {{name}}</p>
           </VButton>
         </form>
         <div
@@ -49,9 +49,11 @@ async function sayHello() {
   loading.value = true
   const { data } = await useFetch('/api/hello', {
     params: {
-      name: name.value,
+       name: name.value,
+      //name: 'quentin', this works but name.value doesnt ?
     },
   })
+ 
   response.value = data.value
   loading.value = false
 }
